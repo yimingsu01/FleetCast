@@ -10,18 +10,18 @@ spec:
   enableDynamicConfiguration: true
   pd:
     replicas: 1
-    storageClassName: local-path
+    storageClassName: openebs-hostpath
     requests:
       storage: "1Gi"
   tidb:
     replicas: 1
     service:
       type: ClusterIP
-    storageClassName: local-path
+    storageClassName: openebs-hostpath
     requests:
       storage: "1Gi"
   tikv:
     replicas: 1
-    storageClassName: local-path
+    storageClassName: openebs-hostpath
     requests:
       storage: "1Gi"
