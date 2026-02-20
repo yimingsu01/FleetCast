@@ -2,7 +2,7 @@
 frontend:
   replicaCount: 2
   image:
-    repository: lilygniedz/orbital-frontend
+    repository: yimingsu01/orbital-frontend
     tag: latest
     pullPolicy: Always
 
@@ -43,7 +43,7 @@ backend:
     prometheus.io/port: "5000"
   replicaCount: 2
   image:
-    repository: lilygniedz/satellite-backend
+    repository: yimingsu01/satellite-backend
     tag: latest
     pullPolicy: IfNotPresent
 
@@ -75,7 +75,7 @@ backend:
   nodeSelector: {}
   tolerations: []
   affinity: {}
-   
+
 
 # === TiDB Secrets  ===
 tidb:
