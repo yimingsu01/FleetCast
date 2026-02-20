@@ -3,7 +3,7 @@ entries:
   satellite-app:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2026-02-19T22:13:59.624266-06:00"
+    created: "2026-02-19T22:15:54.195754-06:00"
     description: A Helm chart for deploying the Orbital frontend and backend on Kubernetes.
     digest: 8a03f71f908675998f0201c582f4b086ccdf2d3b91e5a8cd0eaed63aff0cd9ea
     maintainers:
@@ -14,4 +14,4 @@ entries:
     urls:
     - https://yimingsu01.github.io/FleetCast/satellite-app-0.1.0.tgz
     version: 0.1.0
-generated: "2026-02-19T22:13:59.616692-06:00"
+generated: "2026-02-19T22:15:54.190137-06:00"
