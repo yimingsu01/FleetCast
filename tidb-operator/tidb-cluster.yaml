@@ -4,6 +4,8 @@ metadata:
   name: basic
   namespace: tidb-cluster
 spec:
+  # tlsCluster:
+  #   enabled: true
   version: v6.5.0
   timezone: UTC
   pvReclaimPolicy: Delete

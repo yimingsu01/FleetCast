@@ -4,7 +4,7 @@ import pymysql
 from fastapi.middleware.cors import CORSMiddleware
 from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime
-import os 
+import os
 import ssl
 from dotenv import load_dotenv
 from prometheus_fastapi_instrumentator import Instrumentator
@@ -81,12 +81,12 @@ def start_jobs():
     scheduler.add_job(scheduled_dashboard_job, IntervalTrigger(seconds=15), coalesce=True, max_instances=1)
     scheduler.add_job(scheduled_station_job, IntervalTrigger(seconds=20), coalesce=True, max_instances=1)
     scheduler.start()
-    print("[SCHEDULER] started")
+    print("[SCHEDULER] started YIMING")
 
 @app.on_event("shutdown")
 def stop_jobs():
     scheduler.shutdown(wait=False)
-    print("[SCHEDULER] stopped")
+    print("[SCHEDULER] stopped YIMING")
 
 
 @app.get("/api/simulate")
@@ -155,7 +155,7 @@ def get_dashboard_summary():
                 FROM contact_windows
                 WHERE assigned = TRUE AND end_time > UTC_TIMESTAMP()
             """)
-        
+
             active_contacts = cursor.fetchone()[0]
             cursor.close()
             conn.close()
@@ -194,29 +194,29 @@ def get_station_data(station_id: str):
         span.set_attribute("station.id", station_id)
         with tracer.start_as_current_span("query_station_latest") as span:
             cursor.execute("""
-                SELECT 
-                    sub.ground_station_id, 
+                SELECT
+                    sub.ground_station_id,
                     sub.satellite_id,
                     sub.battery_level,
                     sub.temperature,
                     sub.status,
                     sub.timestamp
                 FROM (
-                    SELECT 
-                        cw.ground_station_id, 
+                    SELECT
+                        cw.ground_station_id,
                         cw.satellite_id,
                         t.battery_level,
                         t.temperature,
                         t.status,
                         t.timestamp,
                         ROW_NUMBER() OVER (
-                            PARTITION BY cw.satellite_id 
+                            PARTITION BY cw.satellite_id
                             ORDER BY t.timestamp DESC
                         ) AS rn
                     FROM contact_windows cw
-                    JOIN telemetry t ON cw.satellite_id = t.satellite_id 
+                    JOIN telemetry t ON cw.satellite_id = t.satellite_id
                                      AND cw.ground_station_id = t.ground_station_id
-                    WHERE cw.assigned = TRUE 
+                    WHERE cw.assigned = TRUE
                       AND cw.end_time > UTC_TIMESTAMP()
                       AND cw.ground_station_id = %s
                 ) sub
@@ -245,4 +245,4 @@ def health_check():
     with tracer.start_as_current_span("health_check") as span:
         span.set_attribute("service.status", "healthy")
         return {"status": "ok"}
-    
+
