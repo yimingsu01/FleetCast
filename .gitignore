@@ -33,7 +33,7 @@ Thumbs.db
 config.yaml
 config.json
 credentials.json
-*.pem
+# *.pem
 
 # Python test cache
 .pytest_cache/
@@ -42,6 +42,6 @@ credentials.json
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
-satellite-app/tidb-ca.pem
+# satellite-app/tidb-ca.pem
 satellite-app/templates/tidb-secret.yaml
 satellite-app/values.secret.yaml
