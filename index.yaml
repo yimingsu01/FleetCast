@@ -3,9 +3,9 @@ entries:
   satellite-app:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2026-02-19T22:15:54.195754-06:00"
+    created: "2026-02-19T22:45:32.141763-06:00"
     description: A Helm chart for deploying the Orbital frontend and backend on Kubernetes.
-    digest: 8a03f71f908675998f0201c582f4b086ccdf2d3b91e5a8cd0eaed63aff0cd9ea
+    digest: 36a0f0fbb5ea598cc86d944a01aad7b38ffaf8b667316dcef32b818dccf51e96
     maintainers:
     - email: yiming34@illinois.edu
       name: Yiming Su
@@ -14,4 +14,4 @@ entries:
     urls:
     - https://yimingsu01.github.io/FleetCast/satellite-app-0.1.0.tgz
     version: 0.1.0
-generated: "2026-02-19T22:15:54.190137-06:00"
+generated: "2026-02-19T22:45:32.135065-06:00"
